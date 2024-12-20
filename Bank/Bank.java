@@ -1,6 +1,6 @@
 package Bank;
 public class Bank {
-    private int balance = 0;
+    private double balance = 0;
     private final int accountLength = 10;
     private String accountNumber;
 
@@ -13,8 +13,7 @@ public class Bank {
         }
     }
      
-
-    private String createAccount(String firstName, String lastName, String accountNumber){
+    public String createAccount(String firstName, String lastName, String accountNumber){
         // create account
         if (accountNumber.isEmpty()){
             
@@ -33,18 +32,17 @@ public class Bank {
             return "Account number: " + this.accountNumber;
         }
     }
-    
-    
-    
-    public static void main(String[] args){
-        User user = new User("Stephen", "Ezea");
-        Bank bank = new Bank();  
-        String accountNumber = bank.createAccount(user.getFirstName(), user.getLastName(), "1234567890");
-        System.out.println(user.userInfor());
-        System.out.println(accountNumber); 
-        System.out.println("Current balance" + bank.balance); 
 
-
+    public double getBalance(){
+        return this.balance;
     }
 
+    public void deposit(int amount){
+        this.balance += amount;
+        System.out.println("Deposite of " + amount +
+         " was successful\nYour new account balance is: " + this.balance);       
+    }
+
+
+    
 }
