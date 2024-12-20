@@ -1,21 +1,14 @@
 package Bank;
 public class Bank {
     private int balance = 0;
-    private String firstName;
-    private String lastName;
-    private String accountNumber;
     private final int accountLength = 10;
+    private String accountNumber;
 
-    private boolean isNumericNumber(String accountNumber) {
-        if (accountNumber == null) {
-            System.out.println("Account number cannot be null");
-            return false;
-        }
+    private boolean isNumericNumber(String accountNumber) {       
         try {
             Double.parseDouble(accountNumber);
             return true;
         } catch (NumberFormatException e) {
-            System.out.println("Account number must be digits");
             return false;
         }
     }
@@ -23,31 +16,34 @@ public class Bank {
 
     private String createAccount(String firstName, String lastName, String accountNumber){
         // create account
-        if (accountNumber.length() != accountLength){
+        if (accountNumber.isEmpty()){
+            
+            return "Account number cannot be empty";
+        }
+        else if (accountNumber.length() != accountLength){
 
-            System.out.println("Account number must be 10 digits");
+            return "Account number must be 10 digits";
         }
 
         else if (!this.isNumericNumber(accountNumber)){
-            System.out.println("Account number must be numeric");
+           return "Account number must be numeric";
         }
         else{
-            // this.accountNumber = accountNumber;
-            this.firstName = firstName;
-            // this.lastName = lastName;
-            
-            System.out.println("Account created successfully");
+            this.accountNumber = accountNumber;
+            return "Account number: " + this.accountNumber;
         }
-
-        return this.firstName;
     }
     
     
     
     public static void main(String[] args){
-        Bank bank = new Bank();
-        System.out.println(bank.balance);
-        System.out.println(bank.createAccount("Stephen", "Ezea", "1234567890"));
+        User user = new User("Stephen", "Ezea");
+        Bank bank = new Bank();  
+        String accountNumber = bank.createAccount(user.getFirstName(), user.getLastName(), "1234567890");
+        System.out.println(user.userInfor());
+        System.out.println(accountNumber); 
+        System.out.println("Current balance" + bank.balance); 
+
 
     }
 
