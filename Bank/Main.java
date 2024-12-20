@@ -9,5 +9,6 @@ public class Main {
         System.out.println(accountNumber); 
         System.out.println("Current balance: " + bank.getBalance() + '\n');
         bank.deposit(5000);
+        bank.withdraw(2000);
     }  
 }

@@ -41,8 +41,10 @@ public class Bank {
         this.balance += amount;
         System.out.println("Deposite of " + amount +
          " was successful\nYour new account balance is: " + this.balance);       
-    }
-
-
-    
+    }    
+    public void withdraw(int amount){
+        this.balance -= amount;
+        System.out.println("Withdrawal of " + amount +
+         " was successful\nYour new account balance is: " + this.balance);       
+    }    
 }
