@@ -1,6 +1,5 @@
 package Bank;
-public class Bank {
-    private double balance = 0;
+public class Bank {  
     private final int accountLength = 10;
     private String accountNumber;
 
@@ -32,19 +31,4 @@ public class Bank {
             return "Account number: " + this.accountNumber;
         }
     }
-
-    public double getBalance(){
-        return this.balance;
-    }
-
-    public void deposit(int amount){
-        this.balance += amount;
-        System.out.println("Deposite of " + amount +
-         " was successful\nYour new account balance is: " + this.balance);       
-    }    
-    public void withdraw(int amount){
-        this.balance -= amount;
-        System.out.println("Withdrawal of " + amount +
-         " was successful\nYour new account balance is: " + this.balance);       
-    }    
 }
